@@ -1,25 +1,24 @@
 import supertest from "supertest";
 
 describe('user', () => {
-  describe('POST /api/v1/login', () => {
-    test('Метод должен существовать', async () => {
-      const res = await supertest('https://try.vikunja.io')
-          .post('/api/v1/login')
-          .send({})
-
-      expect(res.status).not.toEqual(404);
+  describe('POST /v2/pet', () => {
+    test('Add a new pet to the store', async () => {
+      const res = await supertest('https://petstore.swagger.io')
+          .post('/v2/pet')
+          .set('Accept', 'application/json')
+          .send({"id": 12345, "status": "available"})
+          expect(res.status).toEqual(200);
     })
 
-    test('Авторизация должна проходить успешно с правильным логином и паролем', async () => {
-      const res = await supertest('https://try.vikunja.io')
-          .post('/api/v1/login')
+    test('Update an existing pet', async () => {
+      const res = await supertest('https://petstore.swagger.io')
+          .put('/v2/pet')
           .set('Accept', 'application/json')
-          .send({username: 'demo', password: 'demo'})
+          .send({"id": 12345, "status": "notavailable"})
 
       expect(res.status).toEqual(200);
-      expect(typeof res.body.token).toEqual('string')
     })
-
+/*
     test('Авторизация должна возвращать статус с кодом ошибки если логин неверный', async () => {
       const res = await supertest('https://try.vikunja.io')
           .post('/api/v1/login')
@@ -39,6 +38,6 @@ describe('user', () => {
 
       expect(res.status).toEqual(412);
       expect(res.body.code).toEqual(1011)
-    })
-  })
+    })*/
+  }) 
 })
