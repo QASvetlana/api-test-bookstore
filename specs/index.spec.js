@@ -1,5 +1,6 @@
 import supertest from "supertest";
-
+import user from "./helper/user";
+import config from "./user/config";
 
   describe('POST /v2/pet', () => {
     test('Add a new pet to the store', async () => {
@@ -89,11 +90,7 @@ import supertest from "supertest";
       expect(res.status).toEqual(200);
     })
     test('Logs user into the system', async () => {
-      const res = await supertest('https://petstore.swagger.io')
-          .get('/v2/user/login')
-          .set('Accept', 'application/json')
-          .send({"username": "Peter","password": "qwerty123"})
-
+      const res = await user.login(config.credentials)
       expect(res.status).toEqual(200);
     })
 
