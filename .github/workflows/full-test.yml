@@ -53,6 +53,7 @@ jobs:
         if-no-files-found: error
         path: ./jest-html-report
 
+        
     - name: Run tests coverage
       run: npm run test:coverage
       continue-on-error: true
