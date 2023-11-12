@@ -74,6 +74,7 @@ import config from "./user/config";
       expect(res.status).toEqual(200);
     })
 
+    
     test('Create user', async () => {
       const res = await supertest('https://petstore.swagger.io')
           .post('/v2/user')
