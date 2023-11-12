@@ -6,9 +6,9 @@ name: CI Full Tests
 on:
   workflow_dispatch: # Запускать pipeline ручками
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 permissions: # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
   contents: read
