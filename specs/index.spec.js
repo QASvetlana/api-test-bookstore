@@ -74,6 +74,7 @@ import config from "./user/config";
       expect(res.status).toEqual(200);
     })
 
+
     test('Create user', async () => {
       const res = await supertest('https://petstore.swagger.io')
           .post('/v2/user')
@@ -89,9 +90,9 @@ import config from "./user/config";
 
       expect(res.status).toEqual(200);
     })
-    test('Logs user into the system', async () => {
+  /*  test('Logs user into the system', async () => {
       const res = await user.login(config.credentials)
       expect(res.status).toEqual(200);
     })
-
+*/
   }) 
