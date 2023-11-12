@@ -10,5 +10,14 @@ module.exports = {
   globals: {
     testTimeout: 50000,
   },
+  reporters: [
+    "default", 
+    [
+      "jest-html-reporters", {
+        "publicPath": "./jest-html-report",
+        "filename": "report.html"
+      }
+    ]
+  ],
   verbose: true,
 };
